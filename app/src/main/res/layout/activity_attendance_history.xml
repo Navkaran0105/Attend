@@ -22,7 +22,6 @@
             android:id="@+id/class_number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="CSCI5412"
             android:textStyle="bold"
             android:textColor="@color/colorPrimary"/>
 
@@ -30,7 +29,6 @@
             android:id="@+id/class_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Moblie Computing"
             android:layout_marginTop="4dp"
             android:textStyle="bold"
             android:textColor="@color/colorBlack"/>
@@ -39,7 +37,6 @@
             android:id="@+id/register_number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="102 Students Registered"
             android:textColor="@color/colorBlack"/>
 
     </LinearLayout>
