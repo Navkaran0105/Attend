@@ -9,12 +9,15 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
 public class AttendanceHistoryAdapter extends ArrayAdapter<Lecture> {
     private List<Lecture> LectureList;
+    private DateFormat df = new SimpleDateFormat("EEE MMM dd");
 
     public AttendanceHistoryAdapter(Context context, int resource, List<Lecture> LectureList) {
         super(context, resource, LectureList);
@@ -34,13 +37,13 @@ public class AttendanceHistoryAdapter extends ArrayAdapter<Lecture> {
         Lecture i = LectureList.get(position);
 
         if (i != null) {
-            TextView attenDate = v.findViewById(R.id.attendate);
-            //TextView attenDay = v.findViewById(R.id.attenday);
-            TextView attenCount = v.findViewById(R.id.attenCount);
+            TextView attenDate = v.findViewById(R.id.tv_attenDate);
+            TextView attenCount = v.findViewById(R.id.tv_attenCount);
+            TextView attenTimestamp = v.findViewById(R.id.tv_attenTimestamp);
 
             attenDate.setText(i.getDate().toString());
-            //attenDay.setText();
-            attenCount.setText(String.valueOf(i.getNumAttendee()));
+            attenCount.setText(String.valueOf(i.getNumAttendee()) + " Attendances");
+            attenTimestamp.setText(df.format(i.getDate()));
         }
         return v;
     }

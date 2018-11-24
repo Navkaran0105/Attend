@@ -28,9 +28,9 @@ public class AttendanceHistory extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_attendance_history);
 
-        className = findViewById(R.id.class_name);
-        classNumber = findViewById(R.id.class_number);
-        registeredStudents = findViewById(R.id.register_number);
+        className = findViewById(R.id.tv_className);
+        classNumber = findViewById(R.id.tv_classNumber);
+        registeredStudents = findViewById(R.id.tv_registerNumber);
 
         intent = getIntent();
         courseKey = intent.getIntExtra(EasyAttendanceConstants.COURSE_KEY, -1);
@@ -39,13 +39,12 @@ public class AttendanceHistory extends AppCompatActivity {
         classNumber.setText(String.valueOf(courseId));
         courseName = intent.getStringExtra(EasyAttendanceConstants.COURSE_NAME);
         className.setText(courseName);
-        //TODO: Change Default Values back to 0
         studentCount = intent.getIntExtra(EasyAttendanceConstants.COURSE_STUDENT_COUNT, 0);
         registeredStudents.setText(String.valueOf(studentCount));
         attendanceCount = intent.getIntExtra(ATTENDANCE_COUNT, 0);
         ArrayList<Lecture> Testing = new ArrayList<Lecture>();
         Testing.add(new Lecture(50,new Date(),courseKey));
-        datelist = findViewById(R.id.lvdatelist);
+        datelist = findViewById(R.id.lv_datelist);
         try {
             // Will be uncommented when database have entries in it
 
@@ -57,8 +56,5 @@ public class AttendanceHistory extends AppCompatActivity {
         datelist.setAdapter(adapter);
 
         registerForContextMenu(datelist);
-
-
-
     }
 }
